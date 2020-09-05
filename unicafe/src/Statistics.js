@@ -12,10 +12,12 @@ const Statistics = ({ good, neutral, bad }) => {
   };
 
   const getAverageFeedBackValue = (good, neutral, bad) => {
-    return (good + neutral + bad) / 3;
+    return ((good + neutral + bad) / 3).toFixed(2);
   };
 
-  return (
+  return getTotalNumberOfFeedBacks(good, neutral, bad) === 0 ? (
+    <p>No feedbacks given yet</p>
+  ) : (
     <table>
       <tbody>
         <tr>
